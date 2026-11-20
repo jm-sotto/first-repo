@@ -1,0 +1,220 @@
+/* =========================================
+   Variables & Reset
+   ========================================= */
+:root {
+    --bg-cream: rgb(255, 246, 202);
+    --card-blue: rgb(51, 102, 153);
+    --font-heading: "Ubuntu", sans-serif;
+    --font-body: "Lora", serif;
+    --radius-lg: 2em;
+    --radius-sm: 1em;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   Base & Layout
+   ========================================= */
+body,
+.container {
+    min-height: 100vh;
+    background-color: var(--bg-cream);
+    color: var(--bg-cream);
+    font-family: var(--font-body);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin: 2em auto;
+    padding: 0 1.5em;
+    max-width: 1100px;
+}
+
+/* Shared Card Styling */
+header,
+.about-container,
+.Things-I-love,
+.Things-container,
+.Passion-Projects,
+.contact {
+    background-color: var(--card-blue);
+    border-radius: var(--radius-lg);
+    padding: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    gap: 0.5rem;
+}
+
+@media (min-width: 48em) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.header-content h1 {
+    font-size: 2rem;
+}
+
+.header-content h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* =========================================
+   About Section
+   ========================================= */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.about-image {
+    flex-shrink: 0;
+}
+
+.about-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    display: block;
+}
+
+.about-text {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Side-by-side layout: picture on the left, text on the right */
+@media (min-width: 48em) {
+    .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .about-text {
+        text-align: left;
+    }
+}
+
+/* =========================================
+   Things I Love & Lists
+   ========================================= */
+.Things-I-love {
+    margin-top: 1em;
+}
+
+.Things-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Things-container ul {
+    list-style-type: square;
+    list-style-position: inside;
+    padding-left: 1.5em;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   Passion Projects & Gallery
+   ========================================= */
+.Passion-Projects {
+    margin-top: 1em;
+}
+
+.images-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.images-container img {
+    width: 100%;
+    height: auto;
+    flex: 1 1 250px;
+    min-width: 0;
+    border-radius: var(--radius-sm);
+}
+
+/* =========================================
+   Contact
+   ========================================= */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.contact h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.contact-links a {
+    color: var(--bg-cream);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
