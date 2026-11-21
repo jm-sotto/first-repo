@@ -34,6 +34,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     background-color: var(--bg-cream-light);
+    /* Layered background: subtle dot grid + soft palette glows + warm cream gradient */
     background-image: 
         radial-gradient(rgba(94, 67, 46, 0.12) 1px, transparent 1px),
         radial-gradient(circle at 12% 18%, rgba(51, 102, 153, 0.14) 0%, transparent 45%),
@@ -64,11 +65,12 @@ header,
     border-radius: var(--radius-lg);
     padding: 2rem;
     width: 100%;
+    /* Warm espresso-tinted shadow from #5e432e */
     box-shadow: 0 10px 24px -6px rgba(94, 67, 46, 0.25);
 }
 
 /* =========================================
-   Header & Navigation Bar
+   Header & Circular Navigation Bar
    ========================================= */
 header {
     display: flex;
@@ -82,6 +84,7 @@ header {
     overflow: hidden;
 }
 
+/* Subtle decorative light sheen inside the header card */
 header::before {
     content: "";
     position: absolute;
@@ -117,32 +120,42 @@ header::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 0.9rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid rgba(255, 240, 185, 0.25);
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(255, 240, 185, 0.3);
     width: 100%;
-    max-width: 520px;
 }
 
 .navbar a {
-    color: var(--bg-cream-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95px;
+    height: 95px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--bg-cream-light) 0%, var(--bg-cream-warm) 100%);
+    color: var(--accent-brown);
+    border: 3px solid var(--accent-brown);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     text-decoration: none;
     font-family: var(--font-heading);
-    font-size: 0.92rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    padding: 0.4rem 1rem;
-    border-radius: 999px;
-    background-color: rgba(94, 67, 46, 0.45);
-    border: 1px solid rgba(255, 240, 185, 0.45);
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    line-height: 1.2;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navbar a:hover,
 .navbar a:focus-visible {
-    background-color: var(--accent-brown);
+    background: var(--accent-brown);
     color: var(--bg-cream-warm);
-    transform: translateY(-2px);
+    border-color: var(--bg-cream-warm);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* =========================================
@@ -165,148 +178,4 @@ header::before {
     height: 180px;
     object-fit: cover;
     border-radius: var(--radius-sm);
-    border: 3px solid var(--bg-cream-warm);
-    box-shadow: 0 4px 12px rgba(94, 67, 46, 0.3);
-    display: block;
-}
-
-.about-text {
-    font-size: 0.95rem;
-    text-align: center;
-}
-
-.about-text h2 {
-    font-family: var(--font-heading);
-    color: var(--bg-cream-warm);
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
-}
-
-@media (min-width: 48em) {
-    .about-container {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-    }
-
-    .about-text {
-        text-align: left;
-    }
-}
-
-/* =========================================
-   Section Banner Headers (Things I Love / Projects)
-   ========================================= */
-.Things-I-love,
-.Passion-Projects {
-    padding: 1.15rem 2rem;
-    margin-top: 0.5rem;
-    text-align: center;
-    font-family: var(--font-heading);
-    background: linear-gradient(90deg, var(--card-blue-deep) 0%, var(--accent-brown) 50%, var(--card-blue-deep) 100%);
-    scroll-margin-top: 1.5rem;
-}
-
-.Things-I-love h2,
-.Passion-Projects h2 {
-    font-size: 1.5rem;
-    color: var(--bg-cream-warm);
-    letter-spacing: 0.5px;
-}
-
-/* =========================================
-   Things I Love List
-   ========================================= */
-.Things-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.75rem 2rem;
-}
-
-.Things-container ul {
-    list-style-type: square;
-    list-style-position: inside;
-    text-align: left;
-    font-size: 0.95rem;
-    line-height: 1.9;
-}
-
-.Things-container ul li::marker {
-    color: var(--bg-cream-warm);
-}
-
-/* =========================================
-   Passion Projects Gallery
-   ========================================= */
-.images-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1.25rem;
-    margin-top: 1.25rem;
-    width: 100%;
-}
-
-.images-container img {
-    flex: 1 1 240px;
-    max-width: 300px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--bg-cream-warm);
-    box-shadow: 0 6px 14px rgba(94, 67, 46, 0.25);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    display: block;
-}
-
-.images-container img:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(94, 67, 46, 0.35);
-}
-
-/* =========================================
-   Contact Footer
-   ========================================= */
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1.75rem 2rem;
-    text-align: center;
-}
-
-.contact h2 {
-    font-family: var(--font-heading);
-    color: var(--bg-cream-warm);
-    font-size: 1.5rem;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.contact-links a {
-    color: var(--bg-cream-light);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    background-color: rgba(94, 67, 46, 0.35);
-    border: 1px solid rgba(255, 240, 185, 0.4);
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.contact-links a:hover {
-    background-color: var(--accent-brown);
-    color: var(--bg-cream-warm);
-    transform: translateY(-2px);
-}
+    border: 3px solid var(--bg-cream-
