@@ -21,6 +21,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* =========================================
    Base & Layered Background Design
    ========================================= */
@@ -30,7 +34,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     background-color: var(--bg-cream-light);
-    /* Layered background: subtle dot grid + soft palette glows + warm cream gradient */
     background-image: 
         radial-gradient(rgba(94, 67, 46, 0.12) 1px, transparent 1px),
         radial-gradient(circle at 12% 18%, rgba(51, 102, 153, 0.14) 0%, transparent 45%),
@@ -61,26 +64,24 @@ header,
     border-radius: var(--radius-lg);
     padding: 2rem;
     width: 100%;
-    /* Warm espresso-tinted shadow from #5e432e */
     box-shadow: 0 10px 24px -6px rgba(94, 67, 46, 0.25);
 }
 
 /* =========================================
-   Header
+   Header & Navigation Bar
    ========================================= */
 header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 180px;
+    min-height: 200px;
     text-align: center;
     font-family: var(--font-heading);
     position: relative;
     overflow: hidden;
 }
 
-/* Subtle decorative light sheen inside the header card */
 header::before {
     content: "";
     position: absolute;
@@ -92,9 +93,11 @@ header::before {
 .header-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.4rem;
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 .header-content h1 {
@@ -110,6 +113,38 @@ header::before {
     opacity: 0.92;
 }
 
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(255, 240, 185, 0.25);
+    width: 100%;
+    max-width: 520px;
+}
+
+.navbar a {
+    color: var(--bg-cream-light);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background-color: rgba(94, 67, 46, 0.45);
+    border: 1px solid rgba(255, 240, 185, 0.45);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus-visible {
+    background-color: var(--accent-brown);
+    color: var(--bg-cream-warm);
+    transform: translateY(-2px);
+}
+
 /* =========================================
    About Section
    ========================================= */
@@ -118,6 +153,7 @@ header::before {
     flex-direction: column;
     align-items: center;
     gap: 1.75rem;
+    scroll-margin-top: 1.5rem;
 }
 
 .about-image {
@@ -167,8 +203,8 @@ header::before {
     margin-top: 0.5rem;
     text-align: center;
     font-family: var(--font-heading);
-    /* Warm espresso-to-blue blend for section divider banners */
     background: linear-gradient(90deg, var(--card-blue-deep) 0%, var(--accent-brown) 50%, var(--card-blue-deep) 100%);
+    scroll-margin-top: 1.5rem;
 }
 
 .Things-I-love h2,
