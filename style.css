@@ -6,8 +6,8 @@
     --card-blue: rgb(51, 102, 153);
     --font-heading: "Ubuntu", sans-serif;
     --font-body: "Lora", serif;
-    --radius-lg: 2em;
-    --radius-sm: 1em;
+    --radius-lg: 1.25rem; /* Tightened from 2em so cards look sleeker, less pill-shaped */
+    --radius-sm: 0.75rem;
 }
 
 *,
@@ -21,21 +21,21 @@
 /* =========================================
    Base & Layout
    ========================================= */
-body,
-.container {
+body {
     min-height: 100vh;
     background-color: var(--bg-cream);
     color: var(--bg-cream);
     font-family: var(--font-body);
+    line-height: 1.6;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
-    margin: 2em auto;
-    padding: 0 1.5em;
-    max-width: 1100px;
+    gap: 1.25rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    max-width: 960px; /* Slightly tighter max-width for better reading measure */
 }
 
 /* Shared Card Styling */
@@ -47,9 +47,9 @@ header,
 .contact {
     background-color: var(--card-blue);
     border-radius: var(--radius-lg);
-    padding: 2em;
+    padding: 2rem;
     width: 100%;
-    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Adds subtle depth against the cream background */
 }
 
 /* =========================================
@@ -60,36 +60,26 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 250px;
+    min-height: 180px; /* Reduced from 250px to eliminate excessive empty top/bottom space */
+    text-align: center;
     font-family: var(--font-heading);
-    font-weight: 700;
-    gap: 0.5rem;
-}
-
-@media (min-width: 48em) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 .header-content {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.4rem;
 }
 
 .header-content h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
 }
 
 .header-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
+    opacity: 0.9;
 }
 
 /* =========================================
@@ -99,7 +89,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 1.75rem;
 }
 
 .about-image {
@@ -107,24 +97,28 @@ header {
 }
 
 .about-image img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: var(--radius-sm);
     display: block;
 }
 
 .about-text {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 0.95rem;
     text-align: center;
 }
 
-/* Side-by-side layout: picture on the left, text on the right */
+.about-text h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
 @media (min-width: 48em) {
     .about-container {
         flex-direction: row;
-        justify-content: space-between;
+        align-items: center;
         text-align: left;
     }
 
@@ -134,83 +128,93 @@ header {
 }
 
 /* =========================================
-   Things I Love & Lists
+   Section Banner Headers (Things I Love / Projects)
    ========================================= */
-.Things-I-love {
-    margin-top: 1em;
+.Things-I-love,
+.Passion-Projects {
+    padding: 1.15rem 2rem; /* Compact padding so title banners don't look bloated */
+    margin-top: 0.5rem;
+    text-align: center;
+    font-family: var(--font-heading);
 }
 
+.Things-I-love h2,
+.Passion-Projects h2 {
+    font-size: 1.5rem;
+}
+
+/* =========================================
+   Things I Love List
+   ========================================= */
 .Things-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1.75rem 2rem;
 }
 
 .Things-container ul {
     list-style-type: square;
     list-style-position: inside;
-    padding-left: 1.5em;
-    margin: 0 auto;
     text-align: left;
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.9;
 }
 
 /* =========================================
-   Passion Projects & Gallery
+   Passion Projects Gallery
    ========================================= */
-.Passion-Projects {
-    margin-top: 1em;
-}
-
+/* Note: Target the card holding .images-container if it has its own wrapper class */
 .images-container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 2em;
-    margin-top: 1em;
+    align-items: stretch;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
     width: 100%;
 }
 
 .images-container img {
-    width: 100%;
-    height: auto;
-    flex: 1 1 250px;
-    min-width: 0;
+    flex: 1 1 240px;
+    max-width: 300px;
+    height: 260px; /* Enforces uniform card height across portrait & landscape images */
+    object-fit: cover; /* Prevents image stretching/distortion */
     border-radius: var(--radius-sm);
+    display: block;
 }
 
 /* =========================================
-   Contact
+   Contact Footer
    ========================================= */
 .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 0.75rem;
+    padding: 1.75rem 2rem;
+    text-align: center;
 }
 
 .contact h2 {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .contact-links {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5em;
+    gap: 2rem; /* Gives Facebook & Email clear breathing room */
 }
 
 .contact-links a {
     color: var(--bg-cream);
     text-decoration: none;
+    font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     transition: opacity 0.2s ease;
 }
 
