@@ -70,7 +70,7 @@ header,
 }
 
 /* =========================================
-   Header & Circular Navigation Bar
+   Header & Pill-Shaped Circular Navigation Bar
    ========================================= */
 header {
     display: flex;
@@ -121,61 +121,8 @@ header::before {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 1.1rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid rgba(255, 240, 185, 0.3);
-    width: 100%;
-}
-
-.navbar a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 95px;
-    height: 95px;
-    padding: 0.5rem;
-    border-radius: 50%;
-    background: linear-gradient(145deg, var(--bg-cream-light) 0%, var(--bg-cream-warm) 100%);
-    color: var(--accent-brown);
-    border: 3px solid var(--accent-brown);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1.2;
-    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.navbar a:hover,
-.navbar a:focus-visible {
-    background: var(--accent-brown);
-    color: var(--bg-cream-warm);
-    border-color: var(--bg-cream-warm);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-}
-
-/* =========================================
-   About Section
-   ========================================= */
-.about-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.75rem;
-    scroll-margin-top: 1.5rem;
-}
-
-.about-image {
-    flex-shrink: 0;
-}
-
-.about-image img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    border: 3px solid var(--bg-cream-
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    padding: 0.85rem 1.75rem;
+    background-color: rgba(94, 67, 46, 0.55);
+    border: 2px solid rgba(25
